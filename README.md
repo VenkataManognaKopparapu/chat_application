@@ -1,16 +1,8 @@
-## Goals and Requirements
+## Simple Chat SPA (Express + REST)
+This project is a Single Page Application (SPA) chat system built with vanilla JavaScript, Express, and RESTful services.
+All users share a single chat forum where messages persist across sessions and users.
 
-You will be writing a SPA using JS as shown in class that calls REST services (that you also write).  This SPA will be a simple Chat application.  This chat application is a single chat forum, like #questions in our class Slack - all users see the same list of messages, including messages posted before they logged in.
-
-Your app will be tested for grading by running:
-- `npm install`
-- `npm run build`
-- `npm start`
-    - This must start your single express-based server, not `web-dev-server` or other options
-- Visiting `http://localhost:3000/` in the browser
-- You may include other commands/scripts for development if you wish
-  - Note: You may use `node --watch` or `npx webpack --watch` for development, but those should not be the `start` and `build` scripts
-
+The project demonstrates core concepts from the course, including RESTful service design, client-side state management, authentication using session IDs, and polling for updates.
 ### Learning Goals of this assignment:
 - Write RESTful services using express, following the 3 Basic Rules of Rest presented in class.  
     - Reminder that these are my personal rules summarizing REST, you won't be able to Google them effectively

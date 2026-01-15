@@ -1,16 +1,3 @@
-# Project 2 - JS Chat
-
-* Due by **Sun Nov 10, 11:59pm PT**
-
-## Submission Instructions
-
-* start from the up-to-date main branch (`git checkout main; git pull origin main`)
-* Create a feature branch named 'project2' (`git checkout -b project2`)
-* Create the files in this directory to have the require features
-* Add, commit, and push the branch to github
-* Create a PR to merge to main
-* Be sure to include the TA(s) and I as reviewers.  
-
 ## Goals and Requirements
 
 You will be writing a SPA using JS as shown in class that calls REST services (that you also write).  This SPA will be a simple Chat application.  This chat application is a single chat forum, like #questions in our class Slack - all users see the same list of messages, including messages posted before they logged in.

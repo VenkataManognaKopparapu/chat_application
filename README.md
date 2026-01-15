@@ -46,6 +46,7 @@ The project demonstrates core concepts from the course, including RESTful servic
 - Babel (transpilation)
 - Vanilla JavaScript (no frameworks)
 - HTML5 / CSS3
+
 No external frontend libraries or CSS frameworks are used.
 
 ### Visual Requirements

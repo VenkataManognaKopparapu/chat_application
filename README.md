@@ -91,7 +91,8 @@ All backend services are built using REST principles:
 - Start the server :  npm start
  
 - Access the app
-* Open your browser and navigate to:
+
+Open your browser and navigate to:
   - http://localhost:3000/
 
 

@@ -81,54 +81,34 @@ All backend services are built using REST principles:
 - GET /api/v1/users — Retrieve the list of currently logged-in users
 
 
-### Additional Requirements
-- All services will return JSON (if they return a body) and receive JSON (if they receive a body)
-- Do NOT use localStorage, sessionStorage, IndexedDB, cookies, or other forms of client-side storage, except a cookie to hold a `sid` value
-- Do NOT interact with the browser url, including hash fragment
-- Do NOT include files in your PR that are outside the assignment (no IDE configs, `node_modules/`, etc)
-* Do not use external JS other than express, cookie-parser, and the modules we've used for webpack and babel
-  - express-session is NOT allowed!
-  - uuid is NOT allowed!
-  - Modules that do not require npm install are allowed, but make sure you aren't venturing outside the project goals
-* Do not use external CSS libraries
-  - Exception: You may use Google fonts
-* Use arrays and objects when they each make sense
-* Do not use `var`. Use `const` and `let` appropriately
-* Do not use `alert`, `prompt` or other blocking JS
-* Do not use poor variable and function names
-* Do not have functions that are too big/do too much
-* Do not have debugging console.log messages
-* Do not have commented out code
-* You may not use floats to do more than manage flowing text with images
-* You may not use `async` or `await` 
-    - async/await are good, not bad, but I need to see you understand the underlying promises
-* You may not use HTML tables for layout or CSS table layouts
-* You may not use CSS preprocessors, minifiers, or other tools to modify your CSS
-  * I and the TA(s) must be able to read it easily
+### Running the Application
 
-## Extra Credit Options
 
-Styling, appearance, or functionality beyond the above minimums that create a pleasant and professional experience can be worth extra credit.  Extra credit is limited, so focus on the needed requirements first.  Not all of these options are required to receive the maximum extra credit, the collection of any of these options are evaluated against the understanding of concepts from the course that are demonstrated.
+- Install dependencies
+  - npm install
+ 
+     
+- Build the client bundle
+  - npm run build
 
-- This does not change any requirements, make sure those are still fulfilled
-- This does not permit using outside libraries, services, etc - this is meant to show your advanced knowledge of the concepts from class.
-- Provide a nice and pleasant UI that involves more work than the minimum to provide functionality
-- Provide additional chat functionality: DMs between users and/or the option for separate chat "channels"
-- Provide some means by which the polling only receives messages that are new to this user (rather than a full list of all messages)
 
-## Grading Rubric
+- Start the server
+  - npm start
+ 
+- Access the app
+* Open your browser and navigate to:
+  - http://localhost:3000/
 
-Note: The project is to show your understanding of the material from class.  If you don't do that, you can lose points, even it "it works".  Do NOT copy or generate your work (see "do-not-copy-work.md" at the root of this repo).
 
-This project is graded on a number of categories, each graded on the below scale:
-- Missing (0)
-- Needs Improvement (1)
-- Good (2)
-- Excellent (3)
+## Development Notes
 
-This means a single mistake might cost you 0 points or more than 1 point, depending on how much that mistake changes your demonstration of the skills from class.
 
-The categories for this project are:
+- The app uses polling, not WebSockets or long polling
+- Polling stops when the user logs out
+- Client state updates do not interrupt message typing
+- No client-side storage is used other than the session cookie
+- async / await are intentionally not used to demonstrate Promise handling
+
 
 ### Submission
 - Does PR follow submission expectations?  (contains only change from assignment, correct branch name, good commit message(s), reviewers assigned)

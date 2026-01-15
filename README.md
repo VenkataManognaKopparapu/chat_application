@@ -49,50 +49,37 @@ The project demonstrates core concepts from the course, including RESTful servic
 
 No external frontend libraries or CSS frameworks are used.
 
-### Visual Requirements
+### Authentication & Security Notes
 
-You are welcome to use/adapt your HTML/CSS from the `basic-express` assignment, subject to the requirements below and feedback on that assignment
+- Authentication is handled via a session ID stored in a cookie
+- No passwords are used
+- Username validation is performed server-side using an allowlist
+- Username "dog" is rejected with status 403
+- Empty messages return 400
+- Unauthorized access returns 401
+- The server never trusts client input to identify message authors
 
-You have wide discretion on the appearance of the chat, but:
-- You must have SOME styling provided by CSS
-- There must be no horizontal scrolling at normal desktop screen sizes (>800px width) and with usernames of up to 20 characters and normal sized words used in chat
-- You may have min- or max-widths for the chat area, but it must not be set to the same fixed width for all users regardless of their window
-- The list of users should be visually distinct from the list of messages
-- There should be good whitespace, colors, and legibility throughout to promote usability
-- The app should strive for usability 
-  - Example: It should be convenient to send new messages, the polling should not "interrupt" a message that is in the middle of being typed
-- You must have a loading indicator (text, image, and/or CSS) for:
-  - When the page is loading and the SPA does not yet know if the user is "logged in" or not
-  - When the user logs in and the initial list of users/list of messages are being loaded
-- You may have loading indicators for other situations or not, your choice
-- Service calls that generated unexpected errors should inform the user
-  - Example: GET /session can return 401 if the user is not logged in.  This is expected, and will impact what is shown (login form or chat) but will not trigger a specific message to the user.  However, a 400 response when trying to login is NOT the expected response, and will trigger a message displayed on-screen in the app to the user)
-  - Hint: It is MUCH TOO COMMON that students lose points for failing to report errors to the user. Some examples from class have not done this for you, so you can't simply copy code examples, you must demonstrate understanding of what to do to give error messages to the user and do so.
-- SPECIAL: There is no requirement about keeping any vertical scroll position when new messages come in, but I encourage you to think about how you could manage that. 
+### REST API Overview
 
-### Security Requirements
 
-- There should not be any password involved at all
-- User "dog" will be rejected with a 403 error on login (we use this check instead of checking for password)
-- Services that require authorization should respond with the appropriate Status Codes (401) if the request does not have a valid sid cookie value
-- You should allowlist to sanitize the username
-  - Hint: This MUST be done on the server-side.  Client-side can prevent "bad" usernames or must handle if the server returns an error.
-- An empty message will trigger a 400 status code
-- There is no requirement to sanitize messages beyond checking for an empty message, BUT you should think about what would be required to prevent injection attacks and how you would do so.
-- All service calls that return lists of users or lists of messages require authorization
-- All service calls to send messages require authorization
-- The services must never trust the user input to decide which user is sending a message (That is, the username will not be input for service calls to send messages - instead, use the sid to find what username that session belongs to and use that).  This is different than with the basic-express assignment (we had not done login at that time)
+All backend services are built using REST principles: 
 
-### Quality Requirements
-- You must follow the best practices outlined in the course so far for JS, CSS, HTML, services, and file structures
-- The services must follow the REST requirements outlined in class
-- The service urls must be in an `/api/` path
-- The service urls must have a version in their path
-- There is no requirement to paginate the service results on this assignment
-- Use Semantic HTML as much as you can
-- Use Semantic CSS/HTML class names using kebab-case
-  - Semantic BEM-style names are permitted
-- Follow any suggestions previously given to you in code reviews
+
+- All endpoints are prefixed with /api
+- All endpoints include a version identifier (e.g. /v1)
+- Requests and responses use JSON
+- Standard HTTP status codes are used to indicate success and errors
+- Endpoints that access protected data require a valid authenticated session
+
+
+### Available Endpoints
+- GET /api/v1/session — Check whether a user is currently logged in
+- POST /api/v1/session — Create a new login session
+- DELETE /api/v1/session — Log out and remove the current session
+- GET /api/v1/messages — Retrieve the list of chat messages
+- POST /api/v1/messages — Post a new chat message
+- GET /api/v1/users — Retrieve the list of currently logged-in users
+
 
 ### Additional Requirements
 - All services will return JSON (if they return a body) and receive JSON (if they receive a body)

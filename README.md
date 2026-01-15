@@ -37,25 +37,16 @@ The project demonstrates core concepts from the course, including RESTful servic
 - Graceful error handling with user-visible messages
 
 
-### Requirement Overview
+### Technology Stack
 
-- Write an express server that will serve static assets and RESTful services
-- Load a static HTML page as the SPA from your express server
-  - This means there should be only one single html page!
-- The HTML will load a static JS file bundled and transpiled with webpack and babel
-- The SPA will require a user to login to view the chat or send messages
-  - The SPA will determine (using a service call) on load if the user is already logged in. Users that are already logged in are not required to login again.
-- A logged in user will see a list of messages, a list of currently logged in users, and will be able to send messages
-    - You decide whether messages and users are part of the same service call or different service calls
-- Every displayed message will identify which user sent it
-- Every 5 seconds (roughly) the client side will check to see if there are new messages and/or if the list of currently logged in users has changed
-  - Do NOT rewrite the HTML for the input form when you get polling results (a user typing a message will be interrupted and the message-in-progress will be lost!)
-    - Hint: have a smaller render function that covers the users and the messages, but doesn't rewrite the form that gathers the input
-- A user can logout and return to the login screen
-  - This removes that session from the list of currently logged in users
-  - A given user might be logged in more than once at the same time (using multiple browsers or different browser profiles here, more often on phone/desktop in reality)!  Make sure the username only shows up once in the list of users regardless of how many simultaneous sessions they have, and that the username only leaves the list of currently logged in user when all sessions are logged out of
-  - Because we are only counting explicit "logout" actions, this app will consider a user that left the app (closing the tab or navigating to another page) as still "logged in" - that is fine for this assignment
-- Multiple users can be logged in at once (use different browsers or different browser profiles to do this yourself) and can send and see messages from one another
+- Node.js
+- Express
+- cookie-parser
+- Webpack (bundling)
+- Babel (transpilation)
+- Vanilla JavaScript (no frameworks)
+- HTML5 / CSS3
+No external frontend libraries or CSS frameworks are used.
 
 ### Visual Requirements
 

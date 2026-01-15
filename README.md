@@ -3,15 +3,39 @@ This project is a Single Page Application (SPA) chat system built with vanilla J
 All users share a single chat forum where messages persist across sessions and users.
 
 The project demonstrates core concepts from the course, including RESTful service design, client-side state management, authentication using session IDs, and polling for updates.
-### Learning Goals of this assignment:
-- Write RESTful services using express, following the 3 Basic Rules of Rest presented in class.  
-    - Reminder that these are my personal rules summarizing REST, you won't be able to Google them effectively
-- Call RESTful services in front end JS using fetch as demonstrated in class
-- Practice maintaining persistent state on the server and using services to load and update client state
-- Practice using browser based JS to maintain and update state, and use that state to render updates to the HTML
-- Practice using RESTful services for authentication/authorization
-- Write a basic polling feature to check the server for updates and update client state
-  - Not using websockets or long polling, just a simple time-based loop
+### Features:
+- Single-page chat application (one HTML page).
+-  Express server serving:
+    - Static assets (HTML, CSS, bundled JS)
+    - RESTful API endpoints
+- Login system using session IDs stored in cookies
+- No passwords (username-only login)
+- User "dog" is explicitly rejected with a 403 response
+- Persistent server-side chat messages
+  
+- Displays:
+  - List of all chat messages
+  - List of currently logged-in users
+    
+- Users can:
+  - Log in
+  - Send messages
+  - Log out
+
+- Polling every ~5 seconds for:
+  - New messages
+  - Updated logged-in user list
+ 
+- Supports multiple simultaneous sessions per user
+- Usernames appear only once in the user list regardless of session count
+- Messages are always attributed to the correct user
+
+- Loading indicators for:
+  - Initial session check
+  - Login + initial data load
+ 
+- Graceful error handling with user-visible messages
+
 
 ### Requirement Overview
 
